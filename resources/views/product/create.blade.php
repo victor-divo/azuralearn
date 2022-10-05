@@ -24,23 +24,50 @@
                     @csrf
                     <div class="form-group">
                         <label for="sku_code">Nomor SKU</label>
-                        <input type="text" id="sku_code" name="sku_code" class="form-control" required />
+                        <input type="text" id="sku_code" name="sku_code"
+                            class="form-control @error('sku_code') is-invalid @enderror" value="{{ old('sku_code') }}"
+                            required />
+                        @error('sku_code')
+                        <span class="invalid-feedback">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="name">Nama Produk</label>
-                        <input type="text" name="name" id="name" class="form-control" required />
+                        <input type="text" name="name" id="name"
+                            class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}"
+                            required />
+                        @error('name')
+                        <span class="invalid-feedback">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="description">Deskripsi</label>
-                        <textarea name="description" id="description" class="form-control"></textarea>
+                        <textarea name="description" id="description"
+                            class="form-control">{{ old('description') }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="price">Harga</label>
-                        <input type="number" name="price" id="price" class="form-control" />
+                        <input type="number" name="price" id="price"
+                            class="form-control @error('price') is-invalid @enderror" value="{{ old('price') }}" />
+                        @error('price')
+                        <span class="invalid-feedback">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="stock">Stok</label>
-                        <input type="number" name="stock" id="stock" class="form-control" />
+                        <input type="text" name="stock" id="stock"
+                            class="form-control @error('stock') is-invalid @enderror" value="{{ old('stock') }}" />
+                        @error('stock')
+                        <span class="invalid-feedback">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

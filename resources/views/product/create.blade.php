@@ -61,7 +61,7 @@
                     </div>
                     <div class="form-group">
                         <label for="stock">Stok</label>
-                        <input type="text" name="stock" id="stock"
+                        <input type="number" name="stock" id="stock"
                             class="form-control @error('stock') is-invalid @enderror" value="{{ old('stock') }}" />
                         @error('stock')
                         <span class="invalid-feedback">
